@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gamestore/pages/home/widgets/category.dart';
+import 'package:gamestore/pages/home/widgets/header.dart';
+import 'package:gamestore/pages/home/widgets/search.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -6,33 +9,45 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF5F67EA),
+      backgroundColor: const Color(0xFF5F67EA),
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            Transform(transform: Matrix4.identity()..rotateZ(20),
-            origin: Offset(150, 50),
-            child: Image.asset("assets/images/bg_liquid.png", width: 200,),),
+            Transform(
+              transform: Matrix4.identity()..rotateZ(20),
+              origin: const Offset(150, 50),
+              child: Image.asset(
+                'assets/images/bg_liquid.png',
+                width: 200,
+              ),
+            ),
             Positioned(
               right: 0,
               top: 200,
-              child: Transform(transform: Matrix4.identity()..rotateZ(20),
-              origin: Offset(180, 100),
-              child: Image.asset("assets/images/bg_liquid.png", width: 200,),)
+              child: Transform(
+                transform: Matrix4.identity()..rotateZ(20),
+                origin: const Offset(180, 100),
+                child: Image.asset(
+                  'assets/images/bg_liquid.png',
+                  width: 200,
+                ),
+              ),
             ),
-            Container(
-
+            Column(
+              children: [
+                const HeaderSection(),
+                const SearchSection(),
+                CategorySection(),
+              ],
             )
-            
           ],
-        )
+        ),
       ),
       bottomNavigationBar: NavigationBar(),
     );
   }
-}
 
-Widget NavigationBar() {
+  Widget NavigationBar() {
     return Container(
       color: const Color(0xfff6f8ff),
       child: Container(
@@ -117,3 +132,4 @@ Widget NavigationBar() {
       ),
     );
   }
+}
