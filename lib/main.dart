@@ -13,7 +13,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Game Store",
       debugShowCheckedModeBanner: false,
-      home: HomePage()
+      theme: ThemeData(
+        scaffoldBackgroundColor: const Color(0xFF5F67EA),
+        useMaterial3: true,
+      ),
+      home: const HomePage(),
     );
   }
 }
